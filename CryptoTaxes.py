@@ -1,4 +1,5 @@
 # This will calculate cryptocurrency taxes based off coinbase, gdax, and bittrex logs
+
 import gdax_reader
 import bittrex_reader
 import coinbase_reader
@@ -12,6 +13,8 @@ import dateutil.parser
 import sys
 import copy
 
+from gemini_reader import read_gemini_from_csv, read_gemini_from_api
+from credentials import gemini_key, gemini_secret
 
 def fix_orders(orders):
     buys_fixed = []
