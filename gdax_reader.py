@@ -1,14 +1,11 @@
 # This will read in gdax transactions
 import credentials
-try:
-    import gdax
-except ImportError:
-    import GDAX as gdax
+import cbpro as gdax
 import dateutil.parser
 import datetime
 import pytz
 import time
-import cPickle as pickle
+import pickle
 import os
 from bisect import bisect
 
@@ -243,7 +240,7 @@ def get_bitcoin_price_history(start_date='2017/1/1', end_date='', save=False):
     while date < end_date:
         history_btc = client.get_product_historic_rates('BTC-USD', date, date+datetime.timedelta(days=12), 3600)
         while 'message' in history_btc:
-            print history_btc['message'] + '  Sleeping for 30 seconds...'
+            print(history_btc['message'] + '  Sleeping for 30 seconds...')
             time.sleep(30)
             history_btc = client.get_product_historic_rates('BTC-USD', date, date+datetime.timedelta(days=12), 3600)
         date = date + datetime.timedelta(days=7)

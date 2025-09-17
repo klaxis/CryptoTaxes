@@ -1,0 +1,8 @@
+# Project dependencies (Python 3.9+ recommended)
+requests>=2.31.0
+python-dateutil>=2.8.2
+pytz>=2024.1
+reportlab>=3.6.12
+coinbase==2.1.0
+cbpro   # install with --no-deps to avoid old requests pin
+fdfgen>=0.17.0
